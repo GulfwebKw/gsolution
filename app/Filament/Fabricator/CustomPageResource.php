@@ -104,7 +104,7 @@ class CustomPageResource extends PageResource
                                     ->suffixAction(
                                         fn ($get, $context) => FormAction::make($context . '-parent')
                                             ->icon('heroicon-o-arrow-top-right-on-square')
-                                            ->url(fn () => PageResource::getUrl($context, ['record' => $get('parent_id')]))
+                                            ->url(fn () => CustomPageResource::getUrl($context, ['record' => $get('parent_id')]))
                                             ->openUrlInNewTab()
                                             ->visible(fn () => filled($get('parent_id')))
                                     )

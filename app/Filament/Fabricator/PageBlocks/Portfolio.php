@@ -16,7 +16,7 @@ class Portfolio extends PageBlock
         return Block::make('portfolio')
             ->schema([
                 Repeater::make('projects')
-                    ->columns(1)
+                    ->columns(2)
                     ->collapsible()
                     ->schema([
                         TextInput::make('title')

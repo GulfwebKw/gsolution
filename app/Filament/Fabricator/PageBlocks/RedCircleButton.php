@@ -11,6 +11,7 @@ class RedCircleButton extends PageBlock
     public static function getBlockSchema(): Block
     {
         return Block::make('red-circle-button')
+            ->columns(2)
             ->schema([
                 TextInput::make('title'),
                 TextInput::make('redTitle'),

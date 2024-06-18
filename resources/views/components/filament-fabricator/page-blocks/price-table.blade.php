@@ -26,7 +26,7 @@
                     @endif
                     @if($plan['icon'])
                     <div class="icon">
-                        <x-icon name="{{ $plan['icon'] }}" />
+                        <x-icon width="64px" name="{{ $plan['icon'] }}" />
                     </div>
                     @endif
                     @if($plan['title'])

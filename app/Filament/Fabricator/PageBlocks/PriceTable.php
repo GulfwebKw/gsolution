@@ -23,7 +23,8 @@ class PriceTable extends PageBlock
                     ->columnSpan(2),
                 TextInput::make('buyButtonLabel'),
                 Repeater::make('plans')
-                    ->columns(1)
+                    ->columns(2)
+                    ->columnSpan(2)
                     ->collapsed()
                     ->schema([
                         TextInput::make('title'),
@@ -45,6 +46,7 @@ class PriceTable extends PageBlock
                             ->visible(fn (Get $get): bool => $get('isPopular')),
                         Repeater::make('features')
                             ->columns(1)
+                            ->columnSpan(2)
                             ->collapsed()
                             ->schema([
                                 TextInput::make('title')
