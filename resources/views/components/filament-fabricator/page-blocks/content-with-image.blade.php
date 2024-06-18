@@ -63,6 +63,26 @@
                         </div>
                         @endif
 
+                        @if($collapseList and is_array($collapseList) and count($collapseList) > 0)
+                            @php($rand = random_int(1,10000))
+                            <div class="accordion" id="collapse_{{ $rand }}">
+                                @foreach($collapseList as $keyValue)
+                                <div class="accordion-item">
+                                    <h5 class="accordion-header">
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse_{{ $rand }}_{{ $loop->index }}">
+                                            {{ $keyValue['title'] }}
+                                        </button>
+                                    </h5>
+                                    <div id="collapse_{{ $rand }}_{{ $loop->index }}" class="accordion-collapse collapse" data-bs-parent="#collapse_{{ $rand }}">
+                                        <div class="accordion-body">
+                                            <p>{!! nl2br(e($keyValue['description'])) !!}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        @endif
+
                         @if($readMoreLink)
                         <a class="read-more mt-10 color-primary" href="{{ $readMoreLink }}">{{ $readMoreTitle }} <i class="far fa-arrow-right"></i></a>
                         @endif

@@ -10,9 +10,11 @@
     "require": {
         "php": "^8.2",
         "filament/filament": "^3.2",
+        "guava/filament-icon-picker": "*",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "mohamedsabil83/filament-forms-tinyeditor": "^2.3",
+        "owenvoke/blade-fontawesome": "^2.6",
         "z3d0x/filament-fabricator": "^2.2"
     },
     "require-dev": {

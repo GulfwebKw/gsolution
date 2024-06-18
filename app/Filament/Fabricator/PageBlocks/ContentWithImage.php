@@ -47,6 +47,17 @@ class ContentWithImage extends PageBlock
                         Textarea::make('description')
                             ->required(),
                     ]),
+                Repeater::make('collapseList')
+                    ->columnSpanFull()
+                    ->columnSpan(2)
+                    ->columns(2)
+                    ->collapsible()
+                    ->schema([
+                        TextInput::make('title')
+                            ->required(),
+                        Textarea::make('description')
+                            ->required(),
+                    ]),
                 Toggle::make('showImage')
                     ->live()
                     ->inline(),
