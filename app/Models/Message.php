@@ -24,6 +24,7 @@ class Message extends Model
         'type',
         'subject',
         'meta',
+        'attachment',
         'ip_address',
         'is_read',
     ];

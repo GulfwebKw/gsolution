@@ -39,6 +39,10 @@ class MessageResource extends Resource
                     ->content(fn($record) => $record->created_at),
                 KeyValue::make('meta')
                     ->columnSpanFull(),
+                Forms\Components\FileUpload::make('attachment')
+                    ->visible(fn($record) => $record->attachment)
+                    ->downloadable()
+                    ->columnSpanFull(),
             ]);
     }
 
