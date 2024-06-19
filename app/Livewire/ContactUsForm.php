@@ -35,6 +35,10 @@ class ContactUsForm extends Component
         }
         $this->rules['name'] = ['required','string','min:3'];
         $this->validationAttributes['name'] = 'Full name' ;
+        if ( $this->attachment_title) {
+            $this->rules['attachment'] = ['required','file','max:2048' , $this->attachment_accept ? 'mimes:'.str_replace('.','',$this->attachment_accept) : 'max:2048'];
+            $this->validationAttributes['attachment'] = 'Attachment' ;
+        }
     }
 
     public function save(){

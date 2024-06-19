@@ -41,6 +41,7 @@ class MessageResource extends Resource
                     ->columnSpanFull(),
                 Forms\Components\FileUpload::make('attachment')
                     ->visible(fn($record) => $record->attachment)
+                    ->downloadable()
                     ->columnSpanFull(),
             ]);
     }
