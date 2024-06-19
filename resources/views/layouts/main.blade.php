@@ -12,7 +12,7 @@
             @include('layouts.breadcrumb')
         @endif
 
-        @yield('main')
+        @yield('body')
 
         @include('layouts.footer')
     </div>
