@@ -7,6 +7,9 @@ Route::get('/', function () {
 });
 
 
+Route::view('/contactus', 'contactus')->name('contact-us');
+
+
 Route::get('/careers', function () {
     return view('careers' , ['positions' => \App\Models\Career::query()
         ->where('is_active' , true)

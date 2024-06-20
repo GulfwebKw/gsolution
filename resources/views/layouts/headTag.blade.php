@@ -5,7 +5,7 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
 <!-- Title -->
-<title>G Solutions -Proffesinal Web Design and Development Services Kuwait.</title>
+<title>{{ config('app.name') }} @hasSection('title') - @yield('title') @endif</title>
 <!-- Favicon Icon -->
 <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">
 <!-- Google Fonts -->
