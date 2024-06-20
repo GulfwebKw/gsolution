@@ -92,18 +92,11 @@ class ContentWithImage extends PageBlock
                     ->live()
                     ->inline(),
                 Radio::make('imagePosition')
-                    ->inline()
                     ->visible(fn (Get $get): bool => $get('showImage'))
                     ->options([
                         'left' => 'Left',
                         'right' => 'Right',
                     ]),
-                FileUpload::make('image')
-                    ->image()
-                    ->directory('pages/'.now()->format('Y/m/d'))
-                    ->imageEditor()
-                    ->visible(fn (Get $get): bool => $get('showImage'))
-                    ->nullable(),
                 Radio::make('typeOfRedBox')
                     ->live()
                     ->visible(fn (Get $get): bool => $get('showImage'))
@@ -112,6 +105,12 @@ class ContentWithImage extends PageBlock
                         'square' => 'Square',
                         'semicircular' => 'Semicircular',
                     ]),
+                FileUpload::make('image')
+                    ->image()
+                    ->directory('pages/'.now()->format('Y/m/d'))
+                    ->imageEditor()
+                    ->visible(fn (Get $get): bool => $get('showImage'))
+                    ->nullable(),
                 TextInput::make('redSquareBoxText')
                     ->visible(fn (Get $get): bool => $get('showImage') && $get('typeOfRedBox') == 'square'),
                 FileUpload::make('redSemicircularBoxTextImage')
