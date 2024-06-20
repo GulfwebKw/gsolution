@@ -43,7 +43,7 @@
                         <h4>Follow Us</h4>
                         <div class="social-style-two pt-15">
                             @foreach($setting->socials as $social)
-                                <a href="{{ $social['link'] }}" target="_blank"><i class="fab {{ $social['icon'] }}"></i> {{$social['title']}}</a>
+                                <a href="{{ $social['link'] }}" target="_blank"><i class="fab {{ $social['icon'] }}"></i></a>
                             @endforeach
                         </div>
                     </div>

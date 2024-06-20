@@ -12,8 +12,9 @@
             </div>
         </div>
         <div class="row">
+            @php($col = count($plans) % 2 == 1 ? 'col-xl-4' : 'col-xl-3')
             @foreach($plans as $plan)
-            <div class="col-xl-3 col-md-6">
+            <div class="{{ $col }} col-md-6">
                 <div class="pricing-plan-item wow fadeInUp delay-0-4s">
                     @if($plan['isPopular'])
                            <span class="badge">
@@ -33,7 +34,7 @@
                     <h5>{{ $plan['title'] }}</h5>
                     @endif
 
-                    <span class="price-text"> @if($plan['price']) <span class="before">KD</span><span class="price"> {{ number_format($plan['price']) }}</span>@endif @if($plan['price'] and $plan['description'])<br/>@endif @if($plan['description'])<span class="after">{{ $plan['description'] }}</span>@endif </span>
+                    <span class="price-text"> @if($plan['price']) <span class="before">KD</span><span class="price"> {{ $plan['price'] }}</span>@else  <div class="d-block mb-85"></div> @endif @if($plan['price'] and $plan['description'])<br/>@endif @if($plan['description'])<span class="after">{{ $plan['description'] }}</span>@endif </span>
 
                     <ul class="list-style-one">
                         @foreach($plan['features'] as $feature)

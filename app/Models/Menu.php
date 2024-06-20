@@ -35,12 +35,16 @@ class Menu extends Model
 
     public function getLinkAttribute()
     {
-        $type = $this->getAttribute('type');
-        return match ($type) {
-            'page' => FilamentFabricator::getPageUrlFromId($this->getAttribute('page_id')),
-            'direct_link' => $this->getAttribute('direct_link'),
-            'route' => route($this->getAttribute('route')),
-            default => '#',
-        };
+        try {
+            $type = $this->getAttribute('type');
+            return match ($type) {
+                'page' => FilamentFabricator::getPageUrlFromId($this->getAttribute('page_id')),
+                'direct_link' => $this->getAttribute('direct_link'),
+                'route' => route($this->getAttribute('route')),
+                default => '#',
+            };
+        } catch (\Exception $e) {
+            return '#';
+        }
     }
 }

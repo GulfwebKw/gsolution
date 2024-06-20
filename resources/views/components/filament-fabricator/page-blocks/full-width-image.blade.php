@@ -20,7 +20,7 @@
             <img src="{{ asset('storage/'.$image) }}" alt="{{ $page->title }}">
             <div class="hero-social">
                 @foreach($setting->socials as $social)
-                    <a href="{{ $social['link'] }}" target="_blank"><i class="fa fab {{ $social['icon'] }}"></i> {{$social['title']}}</a>
+                    <a href="{{ $social['link'] }}" target="_blank"><i class="fab {{ $social['icon'] }}"></i> {{$social['title']}}</a>
                 @endforeach
             </div>
         </div>

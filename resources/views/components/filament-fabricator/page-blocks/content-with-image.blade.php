@@ -15,7 +15,7 @@
                     </div>
                 @endif
                 @if($typeOfRedBox == 'hide')
-                    <div class="service-about-image rmb-55 wow fadeInUp delay-0-2s">
+                    <div class="rmb-55 wow fadeInUp delay-0-2s">
                         <img src="{{ asset('storage/'.$image) }}" alt="{{ $title }}">
                     </div>
                 @endif
@@ -136,7 +136,7 @@
                         </div>
                     @endif
                     @if($typeOfRedBox == 'hide')
-                        <div class="service-about-image rmb-55 wow fadeInLeft delay-0-2s">
+                        <div class="rmb-55 wow fadeInLeft delay-0-2s">
                             <img src="{{ asset('storage/'.$image) }}" alt="{{ $title }}">
                         </div>
                     @endif

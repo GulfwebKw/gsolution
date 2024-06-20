@@ -32,7 +32,11 @@ class MenuNestedListWidget extends BaseWidget
 
     protected function getTreeQuery(): Builder
     {
-        return $this->getPageTableQuery();
+        $wheres = collect($this->getPageTableQuery()->getQuery()->wheres);
+        $category = $wheres->filter(function ($item) {
+            return $item['column'] = 'category';
+        })->first();
+        return $this->getModel()::query()->where('category' , $category['value']);
     }
     protected function getFormSchema(): array
     {

@@ -94,15 +94,12 @@
                 'title' => '',
                 'theme' => 'contact-us-form-2'
             ])
-            <form method="post" action="contact.html">
-
-            </form>
         </div>
 
         <!--Social Icons-->
         <div class="social-style-one">
             @foreach($setting->socials as $social)
-                <a href="{{ $social['link'] }}" target="_blank"><i class="fa fab {{ $social['icon'] }}"></i> {{$social['title']}}</a>
+                <a href="{{ $social['link'] }}" target="_blank"><i class="fab {{ $social['icon'] }}"></i></a>
             @endforeach
         </div>
     </div>
