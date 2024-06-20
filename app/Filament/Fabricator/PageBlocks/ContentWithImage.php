@@ -58,6 +58,36 @@ class ContentWithImage extends PageBlock
                         Textarea::make('description')
                             ->required(),
                     ]),
+                Repeater::make('numericList')
+                    ->columnSpanFull()
+                    ->columnSpan(2)
+                    ->columns(3)
+                    ->collapsible()
+                    ->schema([
+                        TextInput::make('title')
+                            ->required(),
+                        Textarea::make('description')
+                            ->required(),
+                        TextInput::make('link')
+                            ->url()
+                            ->nullable(),
+                    ]),
+                Repeater::make('timeLineList')
+                    ->columnSpanFull()
+                    ->columnSpan(2)
+                    ->columns(3)
+                    ->collapsible()
+                    ->schema([
+                        TextInput::make('title')
+                            ->required(),
+                        Textarea::make('description')
+                            ->required(),
+                        TextInput::make('link')
+                            ->url()
+                            ->nullable(),
+                    ]),
+                Toggle::make('showRedShadowInBackground')
+                    ->inline(),
                 Toggle::make('showImage')
                     ->live()
                     ->inline(),

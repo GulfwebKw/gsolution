@@ -1,6 +1,7 @@
 @aware(['page'])
 <!-- Services Page About Area start -->
-<section class="service-page-about py-130 rpy-100 rel z-1">
+<section class="service-page-about @if($showRedShadowInBackground) what-we-do-area @endif py-130 rpy-100 rel z-1">
+    <div class="container">
         <div class="row gap-90 align-items-center">
             @if($showImage and $imagePosition == 'left')
             <div class="col-lg-6">
@@ -29,7 +30,7 @@
                 @endif
             </div>
             @endif
-            <div class="@if($showImage)col-xl-5 col-lg-6 @else col-md-12 @endif mx-xl-auto">
+            <div class="@if($showImage)col-xl-6 col-lg-6 @else col-md-12 @endif mx-xl-auto">
                 <div class="about-content wow fadeInUp delay-0-4s">
                     <div class="section-title mb-40">
                         @if($redTitle) <span class="sub-title mb-15">{{ $redTitle }}</span>@endif
@@ -83,6 +84,40 @@
                             </div>
                         @endif
 
+                        @if($numericList and is_array($numericList) and count($numericList) > 0)
+                            @foreach($numericList as $keyValue)
+                                <div class="what-we-do-item wow fadeInUp delay-0-3s">
+                                    <div class="number">
+                                        <span>{{ str($loop->iteration)->padLeft(2 , '0') }}</span>
+                                    </div>
+                                    <div class="content">
+                                        <h5>{{ $keyValue['title'] }}</h5>
+                                        <p>{!! nl2br(e($keyValue['description'])) !!}</p>
+                                        @if($keyValue['link'])
+                                        <a class="read-more style-two" href="{{ $keyValue['link'] }}"><span>Read More</span> <i class="far fa-arrow-right"></i></a>
+                                        @endif
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+
+                        @if($timeLineList and is_array($timeLineList) and count($timeLineList) > 0)
+                            @foreach($timeLineList as $keyValue)
+                                <div class="why-choose-item-two wow fadeInUp delay-0-3s">
+                                    <div class="icon">
+                                        <i class="fas fa-check"></i>
+                                        @if(!$loop->last)
+                                        <span class="icon-bottom-shape"></span>
+                                        @endif
+                                    </div>
+                                    <div class="content">
+                                        <h4><a href="{{ $keyValue['link'] ?? '#' }}">{{ $keyValue['title'] }}</a></h4>
+                                        <p>{!! nl2br(e($keyValue['description'])) !!}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+
                         @if($readMoreLink)
                         <a class="read-more mt-10 color-primary" href="{{ $readMoreLink }}">{{ $readMoreTitle }} <i class="far fa-arrow-right"></i></a>
                         @endif
@@ -117,5 +152,6 @@
                 </div>
             @endif
         </div>
+    </div>
 </section>
 <!-- Services Page About Area end -->
