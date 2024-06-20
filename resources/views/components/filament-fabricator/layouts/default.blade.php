@@ -6,6 +6,11 @@
 
         @include('layouts.header')
 
+        @section('title' , $page->title)
+        @section('breadcrumb')
+            <li class="breadcrumb-item active">{{ $page->title }}</li>
+        @endsection
+
         @include('layouts.breadcrumb')
 
         <x-filament-fabricator::page-blocks :blocks="$page->blocks" />
