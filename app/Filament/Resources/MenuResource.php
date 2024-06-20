@@ -72,6 +72,9 @@ class MenuResource extends Resource
                     ->nullable(),
                 Toggle::make('is_active')
                     ->inline(),
+                Toggle::make('redText')
+                    ->visible(fn (Get $get): bool => $get('category') == 'header')
+                    ->inline(),
             ]);
     }
 

@@ -5,12 +5,12 @@
     ->Ordered()
     ->get() as $item)
     @if($item->children()->count() > 0)
-        <li class="dropdown"><a href="{{ $item->link }}">{{ $item->title }}</a>
+        <li class="dropdown"><a href="{{ $item->link }}" @if($item->redText) class="text-danger" @endif>{{ $item->title }}</a>
             <ul>
                 @include('layouts.menuItem' , ['type' => 'header' , 'menu' => $item])
             </ul>
         </li>
     @else
-        <li><a href="{{ $item->link }}">{{ $item->title }}</a></li>
+        <li><a href="{{ $item->link }}" @if($item->redText) class="text-danger" @endif>{{ $item->title }}</a></li>
     @endif
 @endforeach

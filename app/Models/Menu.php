@@ -21,11 +21,13 @@ class Menu extends Model
         "direct_link",
         "page_id",
         "type",
+        "redText",
         "is_active",
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'redText' => 'boolean',
         'page_id' => 'int'
     ];
 
