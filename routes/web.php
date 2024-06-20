@@ -1,9 +1,36 @@
 <?php
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Route;
+use Z3d0X\FilamentFabricator\Facades\FilamentFabricator;
+use Z3d0X\FilamentFabricator\Layouts\Layout;
+use Z3d0X\FilamentFabricator\Models\Contracts\Page;
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $filamentFabricatorPage = FilamentFabricator::getPageModel()::query()
+        ->where('layout', 'homepage')
+        ->firstOrFail();
+
+    /** @var ?class-string<Layout> $layout */
+    $layout = FilamentFabricator::getLayoutFromName($filamentFabricatorPage?->layout);
+
+    if (! isset($layout)) {
+        throw new \Exception("Filament Fabricator: Layout \"{$filamentFabricatorPage->layout}\" not found");
+    }
+
+    /** @var string $component */
+    $component = $layout::getComponent();
+
+    return Blade::render(
+        <<<'BLADE'
+            <x-dynamic-component
+                :component="$component"
+                :page="$page"
+            />
+            BLADE,
+        ['component' => $component, 'page' => $filamentFabricatorPage]
+    );
 });
 
 

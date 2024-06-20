@@ -1,4 +1,5 @@
 @aware(['page'])
+@if(\App\Models\News::query()->where('is_active' , true)->count() > 0 )
 <!-- Blog Style Two start -->
 <section class="blog-area-two pt-125 rpt-100 pb-70 rpb-40">
     <div class="container container-1290">
@@ -33,3 +34,4 @@
     </div>
 </section>
 <!-- Blog Style Two end -->
+@endif
