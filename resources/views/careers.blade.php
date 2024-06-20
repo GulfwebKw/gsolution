@@ -13,7 +13,7 @@
     <section class="feature-three-area pb-50 rpb-20 rel z-1 pt-130">
         <div class="container container-1290">
             <div class="row gap-130">
-                <p>Join our team, we're always looking for new talent. We are looking for people who love web development, technology and everything this industry has to offer. Below you can see our open positions, however don't let anything stop you from getting in touch if you don't see what you like!</p>
+                <p>{{ $setting->careerDescription }}</p>
 
 {{--                <div class="col-md-6 pb-50"><a class="theme-btn style-three" href="">Submit Your CV <i class="far fa-arrow-right"></i></a></div>--}}
 

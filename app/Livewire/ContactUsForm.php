@@ -12,6 +12,7 @@ class ContactUsForm extends Component
 
     use WithFileUploads;
     public ?string  $name = null;
+    public string  $theme = 'contact-us-form-1';
     public $attachment ;
     public array  $fields = [];
     public array  $data = [];
@@ -62,6 +63,6 @@ class ContactUsForm extends Component
 
     public function render()
     {
-        return view('livewire.contact-us-form');
+        return view('livewire.'.$this->theme);
     }
 }

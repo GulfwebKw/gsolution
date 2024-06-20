@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Filament\Pages\ManageDetail;
+use App\Settings\DetailSetting;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\ServiceProvider;
 use Z3d0X\FilamentFabricator\Facades\FilamentFabricator;
@@ -21,6 +24,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        try {
+            View::share('setting', app(DetailSetting::class));
+        } catch (\Exception $e) {}
+
         FilamentFabricator::pushMeta([
             new HtmlString('<link rel="manifest" href="/site.webmanifest" />'),
         ]);

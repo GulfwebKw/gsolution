@@ -42,7 +42,8 @@ class MenuResource extends Resource
                     ->live()
                     ->options([
                         'header' => 'Header',
-                        'quickLink' => 'Quick Links',
+                        'quickLinkL' => 'Quick Links (Left)',
+                        'quickLinkR' => 'Quick Links (Right)',
                         'footer' => 'Footer',
                     ]),
                 Forms\Components\Radio::make('type')

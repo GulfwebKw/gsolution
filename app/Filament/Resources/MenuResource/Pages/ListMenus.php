@@ -32,7 +32,8 @@ class ListMenus extends ListRecords
     {
         return [
             'Header' => Tab::make()->query(fn ($query) => $query->where('category', 'header')),
-            'Quick Link' => Tab::make()->query(fn ($query) => $query->where('category', 'quickLink')),
+            'Quick Links (Left)' => Tab::make()->query(fn ($query) => $query->where('category', 'quickLinkL')),
+            'Quick Links (Right)' => Tab::make()->query(fn ($query) => $query->where('category', 'quickLinkR')),
             'Footer' => Tab::make()->query(fn ($query) => $query->where('category', 'footer')),
         ];
     }

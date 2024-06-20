@@ -33,48 +33,45 @@
                         </div>
                     </div>
                 </div>
-                @php
-                    $fields =  [
-                        [
-                            "name" => "Phone",
-                            "title" => "Phone",
-                            "type" => "text",
-                            "icon" => "far fa-phone",
-                            "validation" => ['required']
-                        ],
-                        [
-                            "name" => "Email",
-                            "title" => "Email Address",
-                            "type" => "email",
-                            "icon" => "far fa-envelope",
-                            "validation" => ['required' , 'email']
-                        ],
-                        [
-                            "name" => "LinkedIn",
-                            "title" => "LinkedIn Profile (optional)",
-                            "type" => "text",
-                            "icon" => "fab fa-linkedin-in",
-                            "validation" => ['nullable' , 'url']
-                        ],
-                        [
-                            "name" => "Portfolio",
-                            "title" => "Portfolio Link (if applicable)",
-                            "type" => "text",
-                            "icon" => "far fa-link",
-                            "validation" => ['nullable' , 'url']
-                        ],
-                        [
-                            "name" => "Message",
-                            "title" => "Message",
-                            "type" => "textarea",
-                            "icon" => "far fa-pencil",
-                            "validation" => ['required' , 'min:10']
-                        ],
-                    ];
-                @endphp
                 <div class="col-xl-5 col-lg-6">
                     @livewire(\App\Livewire\ContactUsForm::class , [
-                        'fields' => $fields,
+                        'fields' => [
+                            [
+                                "name" => "Phone",
+                                "title" => "Phone",
+                                "type" => "text",
+                                "icon" => "far fa-phone",
+                                "validation" => ['required']
+                            ],
+                            [
+                                "name" => "Email",
+                                "title" => "Email Address",
+                                "type" => "email",
+                                "icon" => "far fa-envelope",
+                                "validation" => ['required' , 'email']
+                            ],
+                            [
+                                "name" => "LinkedIn",
+                                "title" => "LinkedIn Profile (optional)",
+                                "type" => "text",
+                                "icon" => "fab fa-linkedin-in",
+                                "validation" => ['nullable' , 'url']
+                            ],
+                            [
+                                "name" => "Portfolio",
+                                "title" => "Portfolio Link (if applicable)",
+                                "type" => "text",
+                                "icon" => "far fa-link",
+                                "validation" => ['nullable' , 'url']
+                            ],
+                            [
+                                "name" => "Message",
+                                "title" => "Message",
+                                "type" => "textarea",
+                                "icon" => "far fa-pencil",
+                                "validation" => ['required' , 'min:10']
+                            ],
+                        ],
                         'subject' =>  $position->title,
                         'type' => 'Apply For Position',
                         'redTitle' => 'Get Free Quote',
